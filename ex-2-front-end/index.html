@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ex001.css">
+    <title>Atendimento ao Cliente</title>
+</head>
+<body>
+    <div class="chat-box">
+        <header>
+            <h1>Atendimento ao Cliente</h1>
+        </header>
+        <div class="messages" id="messages">
+            <div class="message user-message">
+                    <p>Boa tarde, profº Lucas, tufo bem?</p>
+                </div>
+                <div class="message support-message">
+                    <p>Opa, tudo.</p>
+                </div>
+                <div class="message support-message">
+                    <p>No que posso ajudar ?.</p>
+                </div>
+                <div class="message user-message">
+                    <p>Então, pode me ajudar, me dando nota dez nesse exercicio kkk?</p>
+                </div>
+                <div class="message support-message">
+                    <p> Oh Claro! Seu pedido é uma ordem.</p>
+                </div>
+                <div class="message support-message">
+                    <p> Obvio que não..</p>
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="messageInput" placeholder="Digite sua mensagem..." />
+            <button id="sendButton">Enviar</button>
+        </div>
+    </div>
+
+    <script> 
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const input = document.getElementById('messageInput');
+            const messageText = input.value;
+        
+            if (messageText.trim() !== '') {
+                const messagesDiv = document.getElementById('messages');
+                const messageElement = document.createElement('div');
+                const messagesP= document.getElementById('p');
+                const messageP = document.createElement('b');
+                
+                messageElement.className = 'message user-message'; // Marca como mensagem do user
+                messageElement.textContent = `${messageText}`;
+                messagesDiv.appendChild(messageElement);
+                input.value = '';
+                messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to bottom
+            }
+        });
+
+        document.getElementById('messageInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('sendButton').click();
+            }
+        });
+
+        
+        </script>
+</body>
+</html>
