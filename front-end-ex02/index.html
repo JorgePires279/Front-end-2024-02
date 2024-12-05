@@ -48,11 +48,11 @@
                 const messagesP= document.getElementById('p');
                 const messageP = document.createElement('b');
                 
-                messageElement.className = 'message user-message'; // Marca como mensagem do user
+                messageElement.className = 'message user-message';
                 messageElement.textContent = `${messageText}`;
                 messagesDiv.appendChild(messageElement);
                 input.value = '';
-                messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to bottom
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
             }
         });
 
